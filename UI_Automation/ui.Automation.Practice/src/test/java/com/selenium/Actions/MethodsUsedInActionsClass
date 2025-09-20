@@ -1,0 +1,32 @@
+========== MOUSE ACTIONS ===============
+-----------DOUBLECLICK().-----------
+ -Doubleclick(webelement).build().perform().
+
+-----------CONTEXTCLICK().-----------
+- contextclick(webelement).perform()
+
+-----------MOVETOELEMENT().-----------
+- moveToElement(webelemet).perform().
+
+-----------DRAGANDDROP(). ------------
+USE THIS URL --http://demoqa.com/droppable/
+	 dragandDrop(source webelement, destination webelement);
+	/ dragAndDropBy(source webelement,int x-offset, int y-offset)
+
+
+-----------CLICKANDHOLD().-----------
+ moveToelement(webelement).
+
+
+
+
+===========KEY BOARD ACTIONS ===============
+KEYSUP()
+KEYSDOWN()
+SENDKEYS()
+
+====== OTHER METHODS ===================
+build()
+perform().
+
+

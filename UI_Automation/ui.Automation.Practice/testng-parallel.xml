@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Parallel execution Using Methods..">
+  <test name="Parallel Execution" parallel="methods" thread-count="2">
+    <classes>
+      <class name="com.selenium.parallelExecution.SimpleParallel_Launch">
+      </class> <!-- com.selenium.Select_class.Selecting_WithoutSelect_options -->
+    </classes>
+  </test> <!-- Default test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Default suite]] -->
