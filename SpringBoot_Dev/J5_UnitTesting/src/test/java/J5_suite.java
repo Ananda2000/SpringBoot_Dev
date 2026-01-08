@@ -1,0 +1,12 @@
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.SelectMethod;
+import org.junit.platform.suite.api.Suite;
+import com.J5.Calculator_Test.calculator_test;
+
+@Suite
+@SelectClasses({calculator_test.class})
+
+public class J5_suite {
+
+	
+}

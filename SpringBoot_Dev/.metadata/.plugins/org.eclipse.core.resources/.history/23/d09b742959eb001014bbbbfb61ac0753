@@ -1,0 +1,130 @@
+package com.API.TODO_LIST.Controller;
+
+import java.util.List;
+
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.API.TODO_LIST.Model.Todo_list;
+import com.API.TODO_LIST.Service.TodoList_service;
+
+//import jakarta.websocket.server.PathParam;
+
+@RestController
+public class Testing_Restcontroller 
+{
+	@Autowired
+	TodoList_service todolist_service;
+	
+	@GetMapping("/displayonJsp")
+	public List<Todo_list> displayOn_spring()
+	{
+		
+		/* COMMENTING ON 19-OCT-25 , BECAUSE, AM IMPLEMENTING DATA READING FROM DATA BASE....
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(todolist_service.getAll_TodoList().get(0).getStatus());
+		System.out.println(todolist_service.getAll_TodoList().get(0).getWorkName());
+		
+		System.out.println("-------------------------------------------");
+		System.out.println(todolist_service.getAll_TodoList().get(1).getStatus());
+		System.out.println(todolist_service.getAll_TodoList().get(1).getWorkName());
+		*/
+		List<Todo_list> gg =todolist_service.getAll_TodoList();
+		return gg;
+	}
+	
+	
+// POST CALL METHOD , IT IS USED TO CREATE THE DATA..
+	@PostMapping("/createData")
+	public String creating_data(@RequestBody Todo_list td_list)
+	{
+		String value =null;
+		int data =todolist_service.Add_todolist(td_list);
+		if(data >0)
+		{
+			value = "Successfully Data inserted .";
+		}
+		else
+		{
+			value = "Failed to insert data.";
+		}
+		return value;
+	}
+	
+// Delete call using @DeleteMapping.
+	@DeleteMapping("/deleteRecord/{workname}")
+	public String delete_todolist(@PathVariable("workname") String name)
+	{
+		String Deleted=name;
+		int deleteData =todolist_service.Delete_todolist(name);
+		if(deleteData >0)
+		{
+			Deleted =Deleted+" Deleted Successfully";
+			
+		}
+		else
+		{
+			Deleted =Deleted+" Data is not available in Database";
+		}
+		return Deleted;
+	}
+	
+// update method @updatemapping.
+	@PutMapping("/updaterecords")
+	public String update_todolist(@RequestBody Todo_list todolist)
+	{
+		String values=null;
+		int update =todolist_service.update_todolist(todolist);
+		if(update >0)
+		{
+			values ="Updated successfully";
+		}
+		else
+		{
+			values ="Not updated ";
+		}
+		return values;
+	}
+	
+
+// FETCH THE SINGLE RECORD..
+	@GetMapping("/singleRecord/{workname}")
+	public List<Todo_list> Fetch_singleRecord(@PathVariable("workname") String wk_name)
+	
+	{
+		List<Todo_list> zz =todolist_service.getSingleREcord(wk_name);
+		return zz;
+	}
+	
+// PARTIAL UPDATE USING PATCH MAPPING..
+	@PatchMapping("/singleRecord/{workname}")
+	public String partialUpdate(@PathVariable ("workname") String wk_name)
+	{
+		int vvvv=todolist_service.patch_update(wk_name);
+		if(vvvv>0)
+		{
+			return "updated successfully Using patch method";
+		}
+		else
+		{
+			return "Not updated successfully Using patch method ";
+		}
+	}
+
+	
+	// Use of queryparam to fetch the similar kind of data.
+	@GetMapping("/SimilarStatusData")
+	public List<Todo_list> Display_similarStatusCodesData(@RequestParam(value="statuscode") String status22)
+	{
+		return todolist_service.get_similar_statuscodes_Data(status22);
+	}
+}

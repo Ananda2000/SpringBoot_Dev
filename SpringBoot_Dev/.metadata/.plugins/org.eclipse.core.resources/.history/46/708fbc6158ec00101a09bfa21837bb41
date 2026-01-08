@@ -1,0 +1,10 @@
+package com.api.TODO_LIST_K_u_5_PRACTICE.Model;
+
+public class Todolist 
+{
+	private String WorkName;
+	private String Status;
+	
+	
+
+}

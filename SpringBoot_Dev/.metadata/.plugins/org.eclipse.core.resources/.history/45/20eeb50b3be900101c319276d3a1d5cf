@@ -1,0 +1,144 @@
+package com.API.TODO_LIST.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.API.TODO_LIST.Model.Todo_list;
+
+@Repository
+public class Todolist_repo_data 
+{
+
+	@Autowired
+	JdbcTemplate jdbctemplateclass;
+	
+	
+	String select_all = "select * from todo_list1";
+	String insert_todolist = "insert into todo_list1 (workName, Status1) values(?,?)";
+	String delete_todolist ="delete from todo_list1 where workName=?";
+	String update_todolist ="update todo_list1 set status1=? where workname=?";
+	String One_record = "select * from todo_list1 where workname=?";
+	String partial_update ="update todo_list1 set status1=? where workname=?";
+	String Use_RequestParam = "select * from todo_list1 where status1 =?";
+	
+	
+// THIS METHOD IS USED TO FETCH THE DAT USING REQUESTPARAM WITH SIMILAR DATA CODES.
+	public List<Todo_list> Similar_Status_Code_Data(String statuscode)
+	{
+		return jdbctemplateclass.query(Use_RequestParam, new BeanPropertyRowMapper(Todo_list.class),statuscode);
+	}
+	
+	
+	
+	
+// THIS METHOD USED TO READ DATA FROM TABLE. GET ALL THE RECORDS FROM TABLE.
+	public List<Todo_list> readAllrecords()
+	{
+		return jdbctemplateclass.query(select_all, new BeanPropertyRowMapper(Todo_list.class));
+	}
+	
+
+	
+// ADDING THE TODO LIST USING POSTMAN --POSTCALL. 
+	public int creatingting_todo_list(Todo_list todolist)
+	{
+		int kk =jdbctemplateclass.update(insert_todolist, todolist.getWorkName(),todolist.getStatus1());
+		return kk;
+		
+	}
+// DELETE CALL , DELETING THE RECORD...
+	public int Delete_record_tdlist(String workname1)
+	{
+		System.out.println("------------ this is workname -------"+workname1);
+		int deleteREsponse =jdbctemplateclass.update(delete_todolist, workname1);
+		return deleteREsponse;
+	}
+	
+// UPDATE CALL, TO UPDATE THE RECORD....
+public int update_record(Todo_list todolistUpdate)
+{
+	int updateReturn =jdbctemplateclass.update(update_todolist, todolistUpdate.getStatus1(),todolistUpdate.getWorkName());
+	return updateReturn;
+}
+	
+
+// FETCH THE SINGLE RECORD....
+public List<Todo_list> singleRecord(String workname)
+{
+	//List<Todo_list> singleRecord = jdbctemplateclass.query(One_record, new BeanPropertyRowMapper(Todo_list.class), workname);
+	List<Todo_list> singleRecord = jdbctemplateclass.queryForObject(One_record, new BeanPropertyRowMapper(Todo_list.class), workname);
+	return singleRecord;
+}
+
+
+// UPDATING SINGLE RECORD USING PATCH CALL
+public int partialUpdate (Todo_list tdlist_partialUpdate)
+{
+	int partial_up = jdbctemplateclass.update(partial_update, tdlist_partialUpdate.getStatus1(),tdlist_partialUpdate.getWorkName());
+	
+	return partial_up;
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* THIS IS COMMENTED, BECAUSE AM IMPLEMENTING THE DAT ACCESS FROM db..
+ * 
+ * 	List<Todo_list> todo_list_List;
+	public List<Todo_list> add()
+	{
+		List<Todo_list> todo_list_List = new ArrayList();
+		Todo_list tdlis = new Todo_list("todolist-1","inprogress");
+		todo_list_List.add(tdlis);
+		Todo_list tdlis1 = new Todo_list("todolist-2","Hold");
+		todo_list_List.add(tdlis1);
+		return todo_list_List;
+		
+	}
+	
+	
+
+ * 	public List<Todo_list> add_todolist()
+	{
+		
+		return add();
+	}*/
+	
+	
+	
+
+}
