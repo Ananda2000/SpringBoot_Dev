@@ -1,0 +1,16 @@
+>>>>>>>>>>>>>>>>>>19-oct-2025- sunday>>>>>>>>
+Data Access using Spring JDBC Template--
+	1.JdbcTemplate--done. --> practical implementation in progress..
+	Done -- today implenented jdbctemplate, reading data from DB mysql and displaying on console in Todolist project.
+	Done --	Now display the same data in postman tool, with jsonformat..
+	Done -- @postMapping. method implementation in todolist project.
+
+-------------20-oct-2025--------------
+Done--Delete a record from data base usind @DeleteMapping.
+Done--update a record using @updateMapping annotation.
+Done-- read single record from database.
+
+-------------23-october-2025------------
+1. @patchmapping implented.
+2. @requestparam implemented.
+3.

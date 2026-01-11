@@ -1,0 +1,26 @@
+package com.api.TODO_LIST_J_u_5_PRACTICE.Controller1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.api.TODO_LIST_K_u_5_PRACTICE.Model.Todolist;
+import com.sun.tools.javac.util.List;
+
+@RestController
+public class Hello_world_controller 
+{
+	@Autowired
+	Todolist todolist;
+
+	@GetMapping("/getalllist")
+	public List<todolist> Getcall_Helloworld()
+	{
+		
+		return aaa;
+	}
+	
+	//public String
+
+}
