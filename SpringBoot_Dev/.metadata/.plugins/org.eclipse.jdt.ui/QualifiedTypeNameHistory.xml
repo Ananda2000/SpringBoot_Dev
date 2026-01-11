@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.junit.runners.Parameterized"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.junit.experimental.categories.Category"/>
 <fullyQualifiedTypeName name="org.junit.runners.Parameterized.Parameters"/>
@@ -55,9 +52,12 @@
 <fullyQualifiedTypeName name="com.api.TODO_LIST_J_u_5_PRACTICE.Services.HelloWorld_Service"/>
 <fullyQualifiedTypeName name="org.springframework.boot.test.mock.mockito.MockBean"/>
 <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.query.EqlParser.When_clauseContext"/>
 <fullyQualifiedTypeName name="org.mockito.junit.jupiter.MockitoExtension"/>
 <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
 <fullyQualifiedTypeName name="org.mockito.Mock"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+<fullyQualifiedTypeName name="com.api.TODO_LIST_K_u_5_PRACTICE.Model.Todolist"/>
+<fullyQualifiedTypeName name="com.api.TODO_LIST_J_u_5_PRACTICE.Services.Todolist_interF"/>
 </qualifiedTypeNameHistroy>
