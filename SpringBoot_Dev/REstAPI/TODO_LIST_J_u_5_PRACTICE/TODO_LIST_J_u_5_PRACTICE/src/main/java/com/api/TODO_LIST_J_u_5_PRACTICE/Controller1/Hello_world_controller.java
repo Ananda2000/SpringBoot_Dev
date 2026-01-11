@@ -15,10 +15,11 @@ public class Hello_world_controller
 	Todolist todolist;
 
 	@GetMapping("/getalllist")
-	public List<todolist> Getcall_Helloworld()
+	//public List<todolist> Getcall_Helloworld()
+	public String Getcall_Helloworld()
 	{
 		
-		return aaa;
+		return "aaa";
 	}
 	
 	//public String

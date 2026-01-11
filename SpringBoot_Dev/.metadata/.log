@@ -9097,3 +9097,12 @@ org.eclipse.core.runtime.CoreException: Launch configuration TodoListJU5Practice
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
 !SUBENTRY 1 org.eclipse.jdt.launching 4 107 2026-01-11 11:06:04.015
 !MESSAGE Launch configuration TodoListJU5PracticeApplication references non-existing project TODO_LIST_J_u_5_PRACTICE.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2026-01-11 11:45:21.542
+!MESSAGE No repository found at https://dl.bintray.com/testng-team/testng-eclipse-release/updatesites/6.11.0.201703011520/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2026-01-11 11:51:16.799
+!MESSAGE No repository found at https://download.eclipse.org/releases/oxygen.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2026-01-11 11:56:56.627
+!MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
